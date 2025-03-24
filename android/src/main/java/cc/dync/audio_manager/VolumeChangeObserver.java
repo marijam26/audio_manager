@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.AudioManager;
 import android.util.Log;
+import android.content.pm.ApplicationInfo;
 
 import java.lang.ref.WeakReference;
 
@@ -143,8 +144,9 @@ public class VolumeChangeObserver {
                         if (volume >= 0) {
                             listener.onVolumeChanged(volume);
                         }
+                        boolean isDebuggable = (context.getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
 
-                        if (BuildConfig.DEBUG) {
+                        if (isDebuggable) {
                             Log.d(TAG, "volume=" + volume);
                         }
                     }
