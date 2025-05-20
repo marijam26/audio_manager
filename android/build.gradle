@@ -23,7 +23,6 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 31
-    namespace 'com.jeromexiong.audio_manager'
 
     defaultConfig {
         minSdkVersion 23
